@@ -11,7 +11,6 @@
 
 ### Markdown в деталях
 
-Markdown info
 -------------|--------------
 Filename extensions | .md, .markdown[1][2]
 Internet media type | text/markdown[2]
