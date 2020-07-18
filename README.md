@@ -10,6 +10,7 @@
 * [Информация на GitHub.com](https://guides.github.com/features/mastering-markdown)
 
 ##Markdown в деталях
+
 first header | second header
 ----------------------------
 Filename extensions | .md, .markdown[1][2]
