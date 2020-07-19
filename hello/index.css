@@ -253,16 +253,13 @@ main {
   grid-template-columns: 635px 89px 626px; /*1350px*/
 }
 
-main .jobs {
-}
-
 main .jobs .job {
   background-color: #ffffff;
   border-radius: 1%;
   margin-bottom: 33px;
   padding: 28px 24px;
   padding-right: 10px;
-  padding-bottom: 22px;
+  padding-bottom: 33px;
 }
 
 main .jobs .job h2 {
@@ -286,12 +283,13 @@ main .jobs .job p {
 
 main .jobs .job .check-marks {
   padding: 12px 0;
+  padding-bottom: 28px;
 }
 
 main .jobs .job .check-marks .check-mark {
   position: relative;
   margin-left: 32px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 main .jobs .job .check-marks .check-mark::before {
@@ -304,16 +302,16 @@ main .jobs .job .check-marks .check-mark::before {
   height: 16px;
 }
 
-main .jobs .job .town {
+main .jobs .job div .town {
   color: #9ea7b4;
   font-size: 15px;
   position: relative;
   display: inline-block;
   margin-left: 25px;
-  margin-top: 0;
+  margin-top: 8px;
 }
 
-main .jobs .job .town::before {
+main .jobs .job div .town::before {
   content: "";
   position: absolute;
   top: 2px;
@@ -323,7 +321,7 @@ main .jobs .job .town::before {
   height: 16px;
 }
 
-main .jobs .job .experience {
+main .jobs .job div .experience {
   color: #9ea7b4;
   font-size: 15px;
   position: relative;
@@ -331,7 +329,7 @@ main .jobs .job .experience {
   margin-left: 75px;
 }
 
-main .jobs .job .experience::before {
+main .jobs .job div .experience::before {
   content: "";
   position: absolute;
   top: 2px;
@@ -341,19 +339,21 @@ main .jobs .job .experience::before {
   height: 16px;
 }
 
-main .jobs .job a {
+main .jobs .job div a {
   display: inline-block;
   background-color: #16c4ec;
   color: #ffffff;
   text-decoration: none;
   border-radius: 3%;
-  margin-top: 12px;
-  margin-left: 80px;
+  /* margin-top: 16px; */
+  margin-right: 13px;
 
   text-align: center;
-  line-height: 40px;
+  line-height: 38px;
   width: 217px;
-  height: 40px;
+  height: 38px;
+
+  float: right;
 }
 
 main .jobs .job:nth-of-type(3) a,
