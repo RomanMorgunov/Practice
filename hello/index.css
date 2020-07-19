@@ -278,7 +278,7 @@ main .job {
   margin-bottom: 33px;
   padding: 28px 24px;
   padding-right: 10px;
-  padding-bottom: 33px;
+  padding-bottom: 24px;
 }
 
 main .job h2 {
@@ -325,9 +325,7 @@ main .job div .town {
   color: #9ea7b4;
   font-size: 15px;
   position: relative;
-  display: inline-block;
   margin-left: 25px;
-  margin-top: 8px;
 }
 
 main .job div .town::before {
@@ -344,7 +342,6 @@ main .job div .experience {
   color: #9ea7b4;
   font-size: 15px;
   position: relative;
-  display: inline-block;
   margin-left: 75px;
 }
 
@@ -359,21 +356,71 @@ main .job div .experience::before {
 }
 
 main .job div a {
-  display: inline-block;
   color: #ffffff;
   text-decoration: none;
   border-radius: 3%;
-  margin-right: 13px;
   border: 1px;
   text-align: center;
   line-height: 38px;
+
   width: 217px;
   height: 38px;
+  margin-right: 13px;
+  margin-left: auto;
+}
 
-  float: right;
+main .job-bottom {
+  display: flex;
+  align-items: center;
 }
 
 main .right-sidebar .dotted-hr {
   margin-bottom: 33px;
   border-top: 3px dotted #c2cad4;
+}
+
+main .job-bottom .rating {
+  position: relative;
+  margin-right: 13px;
+  margin-left: auto;
+}
+
+main .job-bottom .rating span {
+  position: absolute;
+  width: 16px;
+  height: 15px;
+  background: url("stars.png") no-repeat 0 0;
+  top: -8px;
+}
+
+main .job-bottom .rating span.full-star {
+  background-position: -32px 0;
+}
+
+main .job-bottom .rating span.half-star {
+  background-position: -16px 0;
+}
+
+main .job-bottom .rating span.empty-star {
+  background-position: 0 0;
+}
+
+main .job-bottom .rating span:nth-of-type(1) {
+  right: 82px;
+}
+
+main .job-bottom .rating span:nth-of-type(2) {
+  right: 62px;
+}
+
+main .job-bottom .rating span:nth-of-type(3) {
+  right: 42px;
+}
+
+main .job-bottom .rating span:nth-of-type(4) {
+  right: 22px;
+}
+
+main .job-bottom .rating span:nth-of-type(5) {
+  right: 2px;
 }
