@@ -1,0 +1,52 @@
+.social-networks {
+  width: 270px;
+  margin: 0 auto;
+  margin-top: 120px;
+  padding: 10px;
+  padding-left: 20px;
+}
+
+.social {
+  display: inline-block;
+  margin-right: 10px;
+
+  vertical-align: middle;
+
+  background: #bdc3c7 url("social.png") no-repeat;
+}
+
+.social-tw {
+  width: 28px;
+  height: 20px;
+  background-position: 0 0;
+}
+
+.social-b {
+  width: 20px;
+  height: 20px;
+  background-position: -29px 0;
+}
+
+.social-be {
+  width: 30px;
+  height: 20px;
+  background-position: -50px 0;
+}
+
+.social-inst {
+  width: 20px;
+  height: 20px;
+  background-position: -81px 0;
+}
+
+.social-p {
+  width: 18px;
+  height: 20px;
+  background-position: -102px 0;
+}
+
+.social-in {
+  width: 20px;
+  height: 20px;
+  background-position: -121px 0;
+}

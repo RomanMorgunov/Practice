@@ -1,0 +1,255 @@
+body {
+  background-color: #eaedf1;
+  color: #33495f;
+  width: 1511px;
+  height: 1716px;
+  font-family: Lato, sans-serif;
+}
+
+.turquoise {
+  color: #16c4ec;
+}
+
+/*profile*/
+header {
+  margin-left: 71px;
+  margin-top: 81px;
+  display: grid;
+  gap: 88px;
+  grid-template-columns: 436px 825px;
+  grid-template-rows: 293px;
+}
+
+header > div {
+  box-sizing: content-box;
+  border: 1px solid F5F7F8;
+  background-color: #ffffff;
+  height: 295px;
+}
+
+header .profile {
+  position: relative;
+}
+
+header .profile img {
+  position: absolute;
+  left: 27px;
+  top: 35px;
+}
+header .profile p {
+  font-size: 17px;
+  margin-top: -20px;
+  margin-left: 216px;
+}
+
+header .profile h2 {
+  font-family: "Signika";
+  font-size: 30px;
+  font-weight: normal;
+  margin-top: 77px;
+  margin-left: 215px;
+}
+
+header .profile .characteristic {
+  width: 109px;
+  height: 78px;
+  position: relative;
+  text-align: center;
+  line-height: 105px;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+header .profile .age {
+  background-color: #16c4ec;
+  left: 0px;
+  top: 60px; /*81*/
+  border: 1px solid #bde9f5;
+  border-right: 0;
+}
+
+header .profile .age::after {
+  content: "";
+  background: url("icons.png") no-repeat 0 0;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 48px;
+  top: 19px;
+}
+
+header .profile .nationality {
+  background-color: #fa5351;
+  left: 110px;
+  top: -20px;
+  border-bottom: 1px solid #f1abad;
+  border-top: 1px solid #f1abad;
+}
+
+header .profile .nationality::after {
+  content: "";
+  background: url("icons.png") no-repeat -16px 0;
+  width: 12px;
+  height: 15px;
+  position: absolute;
+  left: 48px;
+  top: 19px;
+}
+
+header .profile .drivers-license {
+  background-color: #10cdc1;
+  left: 218px;
+  top: -100px;
+  border-bottom: 1px solid #93dfdd;
+  border-top: 1px solid #93dfdd;
+}
+
+header .profile .drivers-license::after {
+  content: "";
+  background: url("icons.png") no-repeat -31px -1px;
+  width: 21px;
+  height: 15px;
+  position: absolute;
+  left: 44px;
+  top: 21px;
+}
+
+header .profile .smoking {
+  background-color: #33495f;
+  left: 327px;
+  top: -180px;
+  border: 1px solid #9ba6b3;
+  border-left: 0;
+}
+
+header .profile .smoking::after {
+  content: "";
+  background: url("icons.png") no-repeat -62px 0;
+  width: 18px;
+  height: 15px;
+  position: absolute;
+  left: 45px;
+  top: 19px;
+}
+
+/*description*/
+
+header .description {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: 447px auto;
+  /* grid-template-rows: 164px 40px; */
+}
+
+header .description h2 {
+  font-family: "Signika";
+  font-weight: normal;
+  font-size: 39px;
+  margin-top: 43px;
+  margin-left: 30px;
+}
+
+header .description p {
+  font-size: 18px;
+  margin-top: -23px;
+  margin-left: 32px;
+  word-spacing: 2px;
+  line-height: 30px;
+}
+
+header .description div.feedback {
+  margin-left: 17px;
+  width: 273px;
+  position: relative;
+  top: 130px;
+}
+
+header .description div.feedback p {
+  font-family: "Signika";
+  font-size: 23px;
+  margin-left: -2px;
+}
+
+header .description div.feedback a {
+  display: block;
+  color: #fa5351;
+  font-family: "Signika";
+  letter-spacing: 3px;
+  font-size: 21px;
+  margin-left: 0px;
+  margin-top: -8px;
+}
+
+header .description div.feedback hr {
+  height: 1px;
+  border: none;
+  margin-top: 32px;
+}
+
+/* header .description .social-networks {
+  width: 393px;
+  height: 20px;
+  margin-left: 25px;
+  margin-top: -44px;
+
+  border: 1px solid;
+  margin: 0 auto;
+  margin-top: 120px;
+  padding: 10px;
+  padding-left: 20px;
+
+  background-color: #ecf0f1;
+} */
+
+header .description .social-networks {
+  width: 394px;
+  margin-top: -45px;
+  margin-left: 25px;
+}
+
+header .description .social-networks .social {
+  display: inline-block;
+  vertical-align: middle;
+  background: url("social.png") no-repeat;
+}
+
+header .description .social-networks .social-tw {
+  width: 28px;
+  height: 20px;
+  background-position: 0 0;
+}
+
+header .description .social-networks .social-b {
+  width: 20px;
+  height: 20px;
+  background-position: -29px 0;
+  margin-left: 46px;
+}
+
+header .description .social-networks .social-be {
+  width: 30px;
+  height: 20px;
+  background-position: -50px 0;
+  margin-left: 49px;
+}
+
+header .description .social-networks .social-inst {
+  width: 20px;
+  height: 20px;
+  background-position: -81px 0;
+  margin-left: 47px;
+}
+
+header .description .social-networks .social-p {
+  width: 18px;
+  height: 20px;
+  background-position: -102px 0;
+  margin-left: 52px;
+}
+
+header .description .social-networks .social-in {
+  width: 20px;
+  height: 20px;
+  background-position: -121px 0;
+  margin-left: 48px;
+}
