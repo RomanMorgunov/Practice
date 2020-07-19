@@ -14,6 +14,26 @@ body {
   color: #04bca6;
 }
 
+.white-background {
+  background-color: #ffffff;
+}
+
+.gray-background {
+  background-color: #b0bbca;
+}
+
+.blue-background {
+  background-color: #16c4ec;
+}
+
+.light-gray-background {
+  background-color: #dbe1e8;
+}
+
+.teal-background {
+  background-color: #10cdc1;
+}
+
 /*profile*/
 header {
   margin-left: 71px;
@@ -253,8 +273,7 @@ main {
   grid-template-columns: 635px 89px 626px; /*1350px*/
 }
 
-main .jobs .job {
-  background-color: #ffffff;
+main .job {
   border-radius: 1%;
   margin-bottom: 33px;
   padding: 28px 24px;
@@ -262,7 +281,7 @@ main .jobs .job {
   padding-bottom: 33px;
 }
 
-main .jobs .job h2 {
+main .job h2 {
   font-weight: normal;
   font-size: 25px;
   font-family: Signika;
@@ -270,29 +289,29 @@ main .jobs .job h2 {
   display: inline;
 }
 
-main .jobs .job span {
+main .job span {
   color: #9ea7b4;
   font-size: 18px;
   margin-left: 11px;
 }
 
-main .jobs .job p {
+main .job p {
   font-size: 20px;
   margin-top: 2px;
 }
 
-main .jobs .job .check-marks {
+main .job .check-marks {
   padding: 12px 0;
   padding-bottom: 28px;
 }
 
-main .jobs .job .check-marks .check-mark {
+main .job .check-marks .check-mark {
   position: relative;
   margin-left: 32px;
   margin-bottom: 14px;
 }
 
-main .jobs .job .check-marks .check-mark::before {
+main .job .check-marks .check-mark::before {
   content: "";
   position: absolute;
   top: 2px;
@@ -302,7 +321,7 @@ main .jobs .job .check-marks .check-mark::before {
   height: 16px;
 }
 
-main .jobs .job div .town {
+main .job div .town {
   color: #9ea7b4;
   font-size: 15px;
   position: relative;
@@ -311,7 +330,7 @@ main .jobs .job div .town {
   margin-top: 8px;
 }
 
-main .jobs .job div .town::before {
+main .job div .town::before {
   content: "";
   position: absolute;
   top: 2px;
@@ -321,7 +340,7 @@ main .jobs .job div .town::before {
   height: 16px;
 }
 
-main .jobs .job div .experience {
+main .job div .experience {
   color: #9ea7b4;
   font-size: 15px;
   position: relative;
@@ -329,7 +348,7 @@ main .jobs .job div .experience {
   margin-left: 75px;
 }
 
-main .jobs .job div .experience::before {
+main .job div .experience::before {
   content: "";
   position: absolute;
   top: 2px;
@@ -339,15 +358,13 @@ main .jobs .job div .experience::before {
   height: 16px;
 }
 
-main .jobs .job div a {
+main .job div a {
   display: inline-block;
-  background-color: #16c4ec;
   color: #ffffff;
   text-decoration: none;
   border-radius: 3%;
-  /* margin-top: 16px; */
   margin-right: 13px;
-
+  border: 1px;
   text-align: center;
   line-height: 38px;
   width: 217px;
@@ -356,7 +373,7 @@ main .jobs .job div a {
   float: right;
 }
 
-main .jobs .job:nth-of-type(3) a,
-main .jobs .job:nth-of-type(4) a {
-  background-color: #b0bbca;
+main .right-sidebar .dotted-hr {
+  margin-bottom: 33px;
+  border-top: 3px dotted #c2cad4;
 }
