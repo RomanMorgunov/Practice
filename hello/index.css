@@ -2,7 +2,7 @@ body {
   background-color: #eaedf1;
   color: #33495f;
   width: 1511px;
-  height: 1716px;
+  /* height: 1716px; */
   font-family: Lato, sans-serif;
 }
 
@@ -725,4 +725,28 @@ main .timeline .timeline-circle:nth-of-type(9) {
 
 main .timeline .timeline-circle:nth-of-type(10) {
   top: 1044px;
+}
+
+/*footer*/
+
+footer {
+  margin-left: 71px;
+  margin-right: 88px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  height: 33px;
+}
+
+footer span {
+  color: #ced4dd;
+  font-family: "";
+  font-size: 120px;
+  margin-top: 50px;
+}
+
+footer em {
+  font-size: 19px;
+  margin: 0 20px;
 }
