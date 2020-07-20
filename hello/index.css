@@ -424,3 +424,238 @@ main .job-bottom .rating span:nth-of-type(4) {
 main .job-bottom .rating span:nth-of-type(5) {
   right: 2px;
 }
+
+/*hobby*/
+
+main .right-sidebar .hobby {
+  background-color: #ffffff;
+  padding: 15px;
+  padding-bottom: 20px;
+}
+
+main .right-sidebar .hobby .hobby-images {
+  display: flex;
+  justify-content: space-between;
+}
+
+main .right-sidebar .hobby .hobby-images .hobby-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main .right-sidebar .hobby .hobby-images .hobby-image div {
+  background: url("hobby.png") no-repeat 0 0;
+  width: 77px;
+  height: 77px;
+  margin-bottom: 10px;
+}
+
+main .right-sidebar .hobby .hobby-images .hobby-image span {
+  font-size: 13px;
+}
+
+main .right-sidebar .hobby .hobby-images .hobby-image div.films {
+  background-position: -77px 0;
+}
+
+main .right-sidebar .hobby .hobby-images .hobby-image div.music {
+  background-position: -154px 0;
+}
+
+main .right-sidebar .hobby .hobby-images .hobby-image div.fashionista {
+  background-position: -231px 0;
+}
+
+main .right-sidebar .hobby .hobby-images .hobby-image div.epicurean {
+  background-position: -308px 0;
+}
+
+main .right-sidebar .hobby .hobby-images .hobby-image div.travels {
+  background-position: -385px 0;
+}
+
+/*Progress bars in hobby*/
+
+main .right-sidebar .hobby .progress-bars {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 15px;
+  margin-top: 42px;
+  /* border: 1px solid; */
+}
+
+main .right-sidebar .hobby .progress-bars div {
+  padding-left: 2px;
+}
+
+main .right-sidebar .hobby .progress-bars .progress-bars-right {
+  margin-left: 30px;
+}
+
+main .right-sidebar .hobby .progress-bars .progress-bar {
+  margin-bottom: 17px;
+  position: relative;
+}
+
+main .right-sidebar .hobby .progress-bars .progress-bar progress {
+  background-color: #ffffff;
+  width: 270px;
+  height: 14px;
+}
+
+main
+  .right-sidebar
+  .hobby
+  .progress-bars
+  .progress-bar
+  progress::-webkit-progress-value {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+main
+  .right-sidebar
+  .hobby
+  .progress-bars
+  .progress-bars-left
+  .progress-bar
+  progress::-webkit-progress-value {
+  background-color: #04bca6;
+}
+
+main
+  .right-sidebar
+  .hobby
+  .progress-bars
+  .progress-bars-right
+  .progress-bar
+  progress::-webkit-progress-value {
+  background-color: #16c4ec;
+}
+
+main
+  .right-sidebar
+  .hobby
+  .progress-bars
+  .progress-bar
+  progress::-webkit-progress-bar {
+  border-radius: 5px;
+  background-color: #dbe1e8;
+}
+
+main .right-sidebar .hobby .progress-bars .progress-bar .caption {
+  display: flex;
+}
+
+main .right-sidebar .hobby .progress-bars .progress-bar .caption span {
+  color: #34495e;
+}
+
+main .right-sidebar .hobby .progress-bars .progress-bar .caption div .percent {
+  color: #f5f6f6;
+  background-color: #34495e;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 1px 7px;
+}
+
+main .right-sidebar .hobby .progress-bars .progress-bar .caption div .angle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 2.6px 1.5px 0 1.5px;
+  border-color: #34495e transparent transparent transparent;
+
+  margin: 0 auto;
+}
+
+/*left percents*/
+main
+  .right-sidebar
+  .hobby
+  .progress-bars
+  .progress-bars-left
+  .progress-bar:nth-child(1)
+  .caption
+  > div {
+  margin-left: 119px;
+}
+
+main
+  .right-sidebar
+  .hobby
+  .progress-bars
+  .progress-bars-left
+  .progress-bar:nth-child(2)
+  .caption
+  > div {
+  margin-left: 50px;
+}
+
+main
+  .right-sidebar
+  .hobby
+  .progress-bars
+  .progress-bars-left
+  .progress-bar:nth-child(3)
+  .caption
+  > div {
+  margin-left: 152px;
+}
+
+main
+  .right-sidebar
+  .hobby
+  .progress-bars
+  .progress-bars-left
+  .progress-bar:nth-child(4)
+  .caption
+  > div {
+  margin-left: 124px;
+}
+
+/*right percents*/
+main
+  .right-sidebar
+  .hobby
+  .progress-bars
+  .progress-bars-right
+  .progress-bar:nth-child(1)
+  .caption
+  > div {
+  margin-left: 3px;
+}
+
+main
+  .right-sidebar
+  .hobby
+  .progress-bars
+  .progress-bars-right
+  .progress-bar:nth-child(2)
+  .caption
+  > div {
+  margin-left: 70px;
+}
+
+main
+  .right-sidebar
+  .hobby
+  .progress-bars
+  .progress-bars-right
+  .progress-bar:nth-child(3)
+  .caption
+  > div {
+  margin-left: 65px;
+}
+
+main
+  .right-sidebar
+  .hobby
+  .progress-bars
+  .progress-bars-right
+  .progress-bar:nth-child(4)
+  .caption
+  > div {
+  margin-left: 50px;
+}
