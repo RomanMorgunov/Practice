@@ -659,3 +659,70 @@ main
   > div {
   margin-left: 50px;
 }
+
+/*timeline*/
+main .timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 1175px;
+}
+
+main .timeline .timeline-line {
+  height: 1139px;
+  width: 6px;
+  margin-left: 37px;
+}
+
+main .timeline .timeline-year {
+  margin-right: 11px;
+  margin-left: 4px;
+  padding: 4px 10px;
+  border-radius: 3px;
+  color: white;
+  font-size: 22px;
+}
+
+main .timeline .timeline-circle {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  left: 30px;
+}
+
+main .timeline .timeline-circle:nth-of-type(2) {
+  top: 160px;
+}
+
+main .timeline .timeline-circle:nth-of-type(3) {
+  top: 260px;
+}
+
+main .timeline .timeline-circle:nth-of-type(4) {
+  top: 465px;
+}
+
+main .timeline .timeline-circle:nth-of-type(5) {
+  top: 523px;
+}
+
+main .timeline .timeline-circle:nth-of-type(6) {
+  top: 664px;
+}
+
+main .timeline .timeline-circle:nth-of-type(7) {
+  top: 802px;
+}
+
+main .timeline .timeline-circle:nth-of-type(8) {
+  top: 882px;
+}
+
+main .timeline .timeline-circle:nth-of-type(9) {
+  top: 999px;
+}
+
+main .timeline .timeline-circle:nth-of-type(10) {
+  top: 1044px;
+}
