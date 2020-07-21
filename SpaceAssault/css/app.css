@@ -19,7 +19,7 @@ canvas {
 .wrapper {
   width: 512px;
   margin: 0 auto;
-  margin-top: 2em;
+  margin-top: 1em;
 }
 
 #instructions {
@@ -29,6 +29,7 @@ canvas {
 }
 
 div.statistics {
+  margin-top: 0;
   float: right;
   color: white;
   font-size: 1.3em;
