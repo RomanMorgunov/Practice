@@ -89,6 +89,7 @@ function update(dt) {
   // equation: 1-.993^gameTime
   if (Math.random() < 1 - Math.pow(0.993, gameTime)) {
     enemies.push({
+      direction: "up",
       pos: [canvas.width, Math.random() * (canvas.height - 39)],
       sprite: new Sprite("img/sprites_02.png", [0, 78], [80, 39], 6, [
         0,
@@ -197,22 +198,27 @@ function updateEntities(dt) {
   for (var i = 0; i < enemies.length; i++) {
     enemies[i].pos[0] -= enemySpeed * dt;
 
-    //collision check with megaliths
     if (isMegalithsBounds(enemies[i].pos, enemies[i].sprite.size)) {
       enemies[i].pos[0] += enemySpeed * dt;
 
-      if (
-        Math.floor(
-          (enemies[i].pos[1] + enemies[i].sprite.size[1] / 2) /
-            (canvas.height / 2)
-        ) === 0
-      ) {
+      if (enemies[i].direction == "up") {
         enemies[i].pos[1] -= enemySpeed * dt;
-      } else {
+
+        if (isMegalithsBounds(enemies[i].pos, enemies[i].sprite.size)) {
+          enemies[i].pos[1] += enemySpeed * dt;
+          enemies[i].direction = "down";
+        }
+      }
+
+      if (enemies[i].direction == "down") {
         enemies[i].pos[1] += enemySpeed * dt;
+
+        if (isMegalithsBounds(enemies[i].pos, enemies[i].sprite.size)) {
+          enemies[i].pos[1] -= enemySpeed * dt;
+          enemies[i].direction = "up";
+        }
       }
     }
-    //
 
     enemies[i].sprite.update(dt);
 
@@ -403,27 +409,25 @@ function megalithsInit() {
   );
   megaliths = [];
   for (var i = 0; i < megalithsCount; i++) {
-    megaliths.push({
-      pos: [
-        Math.floor(
-          Math.random() *
-            (canvas.width -
-              megalithsSize[0] -
-              player.sprite.size[0] -
-              player.pos[0] +
-              1) +
-            player.sprite.size[0] +
-            player.pos[0]
+    do {
+      var m = {
+        pos: [
+          Math.floor(Math.random() * (canvas.width - megalithsSize[0] + 1)),
+          Math.floor(Math.random() * (canvas.height - megalithsSize[1] + 1)),
+        ],
+        sprite: new Sprite(
+          "img/sprites_02.png",
+          [3, 213],
+          [megalithsSize[0], megalithsSize[1]],
+          0
         ),
-        Math.floor(Math.random() * (canvas.height - megalithsSize[1] + 1)),
-      ],
-      sprite: new Sprite(
-        "img/sprites_02.png",
-        [3, 213],
-        [megalithsSize[0], megalithsSize[1]],
-        0
-      ),
-    });
+      };
+    } while (
+      isPlayerBounds(m.pos, m.sprite.size) ||
+      isMegalithsBounds(m.pos, m.sprite.size)
+    );
+
+    megaliths.push(m);
   }
 }
 
@@ -447,13 +451,21 @@ function checkMegalithsCollisions() {
 
 function isMegalithsBounds(pos, size) {
   for (var i = 0; i < megaliths.length; i++) {
-    var _pos = megaliths[i].pos;
+    var _pos = [megaliths[i].pos[0] + 5, megaliths[i].pos[1] + 5];
     var _size = megaliths[i].sprite.size;
 
     if (boxCollides(pos, size, _pos, _size)) {
       return true;
     }
   }
+  return false;
+}
+
+function isPlayerBounds(pos, size) {
+  if (boxCollides(pos, size, player.pos, player.sprite.size)) {
+    return true;
+  }
+  return false;
 }
 
 function generateManna() {
@@ -464,13 +476,23 @@ function generateManna() {
       Math.floor(Math.random() * (maxManna - minManna + 1) + minManna) -
       manna.length;
     for (var i = 0; i < _mannaCount; i++) {
-      manna.push({
-        pos: [
-          Math.floor(Math.random() * (canvas.width - 44 + 1)),
-          Math.floor(Math.random() * (canvas.height - 39 + 1)),
-        ],
-        sprite: new Sprite("img/sprites_02.png", [0, 164], [44, 39], 2, [0, 1]),
-      });
+      do {
+        var m = {
+          pos: [
+            Math.floor(Math.random() * (canvas.width - 44 + 1)),
+            Math.floor(Math.random() * (canvas.height - 39 + 1)),
+          ],
+          sprite: new Sprite("img/sprites_02.png", [0, 164], [44, 39], 2, [
+            0,
+            1,
+          ]),
+        };
+      } while (
+        isPlayerBounds(m.pos, m.sprite.size) ||
+        isMegalithsBounds(m.pos, m.sprite.size)
+      );
+
+      manna.push(m);
     }
   }
 }
