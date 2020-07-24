@@ -25,6 +25,7 @@ namespace BL
         List<Subject> _water;
         List<Subject> _apples;
         List<Bullet> _bullets;
+        Dictionary<Direction, RotateFlipType> rotateDictionary;
 
         public int FieldWidth { get; private set; }
         public int FieldHeight { get; private set; }
@@ -54,11 +55,21 @@ namespace BL
             _tanks = new List<Tank>(TanksCount);
             _apples = new List<Subject>(AppleCount);
             _kolobok = new Kolobok(FieldWidth / 2 - ENTITY_WIDTH, FieldHeight - ENTITY_HEIGHT,
-                ENTITY_WIDTH, ENTITY_HEIGHT, SpeedEntities);            
+                ENTITY_WIDTH, ENTITY_HEIGHT, SpeedEntities);
 
+            InitRotateDictionary();
             InitBarriers(FieldWidth, FieldHeight);
             SpawnTanks();
             SpawnAplles();
+        }
+
+        void InitRotateDictionary()
+        {
+            rotateDictionary = new Dictionary<Direction, RotateFlipType>();
+            rotateDictionary[Direction.Left] = RotateFlipType.Rotate270FlipNone;
+            rotateDictionary[Direction.Right] = RotateFlipType.Rotate90FlipNone;
+            rotateDictionary[Direction.Up] = RotateFlipType.RotateNoneFlipNone;
+            rotateDictionary[Direction.Down] = RotateFlipType.Rotate180FlipNone;
         }
 
         void InitBarriers(int fieldWidth, int fieldHeight)
@@ -186,7 +197,7 @@ namespace BL
         {
             foreach (var item in _tanks)
             {
-                Bullet b = item.Act(in _kolobok, Barriers, FieldWidth, FieldHeight);
+                Bullet b = item.Act(in _kolobok, Barriers, in _tanks, FieldWidth, FieldHeight);
                 if (!(b is null))
                     _bullets.Add(b);
             }
@@ -230,10 +241,15 @@ namespace BL
             Bitmap bitmap = new Bitmap(FieldWidth, FieldHeight);
             Graphics g = Graphics.FromImage(bitmap);
 
-            g.DrawImage(Resources.kolobok_test, _kolobok.X, _kolobok.Y);
+            Image kolobok = Resources.kolobok;
+            kolobok.RotateFlip(rotateDictionary[_kolobok.DirectionOfFire]);
+            g.DrawImage(kolobok, _kolobok.X, _kolobok.Y);
+
             foreach (var item in _tanks)
             {
-                g.DrawImage(Resources.tank_test, item.X, item.Y);
+                Image tank = Resources.tank;
+                tank.RotateFlip(rotateDictionary[item.DirectionOfFire]);
+                g.DrawImage(tank, item.X, item.Y);
             }
             foreach (var item in _walls)
             {

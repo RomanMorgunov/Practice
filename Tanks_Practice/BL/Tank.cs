@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,9 @@ namespace BL
     {
         //in percents
         const int PROBABILITY_OF_SHOT = 1;
+        const int PROBABILITY_OF_DIRECTION_CHANGE = 25;
+        
+
         const int MOVE_DELAY = 500;
 
         DateTime _timeOfTheLastMove;
@@ -17,52 +21,87 @@ namespace BL
         internal Tank(int x, int y, int width, int height, int speed)
             : base(x, y, width, height, speed) { }
 
-        internal Bullet Act(in Kolobok kolobok, in List<Subject> barriers, int fieldWidth, int fieldHeight)
+        internal Bullet Act(in Kolobok kolobok, in List<Subject> barriers, in List<Tank> tanks, int fieldWidth, int fieldHeight)
         {
-            Move(barriers, fieldWidth, fieldHeight);
+            Move(barriers, fieldWidth, fieldHeight, tanks);
             return Shoot(in kolobok);            
         }
 
-        void Move(in List<Subject> barriers, int fieldWidth, int fieldHeight)
+        void Move(in List<Subject> barriers, int fieldWidth, int fieldHeight, in List<Tank> tanks)
         {
             if ((DateTime.Now - _timeOfTheLastMove).TotalMilliseconds > MOVE_DELAY)
             {
                 _timeOfTheLastMove = DateTime.Now;
-                switch (new Random().Next(5))
-                {
-                    case (int)Direction.Left:
-                        X -= Speed;
-                        DirectionOfFire = Direction.Left;
 
-                        if (!isMoving(barriers, fieldWidth, fieldHeight))
-                            X += Speed;
-                        break;
+                if (new Random().Next(101) <= PROBABILITY_OF_DIRECTION_CHANGE)
+                    ToMove((Direction)new Random().Next(5), in barriers, fieldWidth, fieldHeight, in tanks);
+                else
+                    ToMove(this.DirectionOfFire, in barriers, fieldWidth, fieldHeight, in tanks);
+            }
+        }
 
-                    case (int)Direction.Up:
-                        Y -= Speed;
-                        DirectionOfFire = Direction.Up;
-
-                        if (!isMoving(barriers, fieldWidth, fieldHeight))
-                            Y += Speed;
-                        break;
-
-                    case (int)Direction.Right:
+        void ToMove(Direction direction, in List<Subject> barriers, int fieldWidth, int fieldHeight, in List<Tank> tanks)
+        {
+            DirectionOfFire = direction;
+            switch (direction)
+            {
+                case Direction.Left:
+                    X -= Speed;
+                    if (!isMoving(barriers, fieldWidth, fieldHeight) || 
+                        IsTank(tanks))
+                    {
                         X += Speed;
                         DirectionOfFire = Direction.Right;
+                    }
+                    break;
 
-                        if (!isMoving(barriers, fieldWidth, fieldHeight))
-                            X -= Speed;
-                        break;
-
-                    case (int)Direction.Down:
+                case Direction.Up:
+                    Y -= Speed;
+                    if (!isMoving(barriers, fieldWidth, fieldHeight) ||
+                        IsTank(tanks))
+                    {
                         Y += Speed;
                         DirectionOfFire = Direction.Down;
+                    }
+                    break;
 
-                        if (!isMoving(barriers, fieldWidth, fieldHeight))
-                            Y -= Speed;
-                        break;
-                }
+                case Direction.Right:
+                    X += Speed;
+                    if (!isMoving(barriers, fieldWidth, fieldHeight) ||
+                        IsTank(tanks))
+                    {
+                        X -= Speed;
+                        DirectionOfFire = Direction.Left;
+                    }
+                    break;
+
+                case Direction.Down:
+                    Y += Speed;
+                    if (!isMoving(barriers, fieldWidth, fieldHeight) ||
+                        IsTank(tanks))
+                    {
+                        Y -= Speed;
+                        DirectionOfFire = Direction.Up;
+                    }
+                    break;
             }
+        }
+
+        bool IsTank(List<Tank> tanks)
+        {
+            int count = 0;
+            foreach (var item in tanks)
+            {
+                if (IsCollides(item.X, item.Y, item.Width, item.Height))
+                {
+                    count++;
+                }
+
+                //the list of tanks contains itself
+                if (count > 1)
+                    return true;
+            }
+            return false;
         }
 
         Bullet Shoot(in Kolobok kolobok)

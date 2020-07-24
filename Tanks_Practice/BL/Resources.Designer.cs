@@ -93,9 +93,9 @@ namespace BL {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap kolobok_test {
+        internal static System.Drawing.Bitmap kolobok {
             get {
-                object obj = ResourceManager.GetObject("kolobok_test", resourceCulture);
+                object obj = ResourceManager.GetObject("kolobok", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace BL {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tank_test {
+        internal static System.Drawing.Bitmap tank {
             get {
-                object obj = ResourceManager.GetObject("tank_test", resourceCulture);
+                object obj = ResourceManager.GetObject("tank", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

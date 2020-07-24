@@ -68,12 +68,6 @@
     <None Include="Resources\brick.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\kolobok_test.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tank_test.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\water.png" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +75,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\apple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kolobok.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
