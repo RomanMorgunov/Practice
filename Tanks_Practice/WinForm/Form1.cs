@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BL;
@@ -24,36 +25,47 @@ namespace WinForm
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.UserPaint, true);
             NewGame();
         }
 
         private void UpdateSettings()
         {
             _settingsForm.ShowDialog();
-            this.Size = new Size(_settingsForm.FieldWidth + 16, _settingsForm.FieldHeight + 63);
+            this.Size = new Size(_settingsForm.FieldWidth + 16, _settingsForm.FieldHeight + 94);
         }
 
         private void NewGame()
         {
+            if (!(_field is null))
+            {
+                _field.OnGameOver -= GameOver;
+                _field.OnUpdateImage -= RefreshPictureBox;
+            }
+
             _field = new Field(_settingsForm.FieldWidth, _settingsForm.FieldHeight, _settingsForm.TanksCount,
-                _settingsForm.AppleCount, _settingsForm.SpeedEntities, GameOver);
+                _settingsForm.AppleCount, _settingsForm.SpeedEntities, GameOver, RefreshPictureBox);
+            timer.Start();
         }
 
         private void GameOver(object sender, EventArgs e)
         {
+            timer.Stop();
             MessageBox.Show($"Game Over!");
             NewGame();
         }
 
-        private void pictureBox_Paint(object sender, PaintEventArgs e)
+        private void timer_Tick(object sender, EventArgs e)
         {
-            Graphics g = e.Graphics;
-            _field.Draw(g);
+            _field.Simulation();
         }
 
-        private void fieldUpdateTimer_Tick(object sender, EventArgs e)
+        private void RefreshPictureBox(object sender, TanksEventArgs e)
         {
-            pictureBox.Refresh();
+            pictureBox.Image = e.Image;
+            scoreTSL.Text = e.Score.ToString();
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)

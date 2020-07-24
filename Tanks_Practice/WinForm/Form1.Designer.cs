@@ -34,9 +34,13 @@
             this.settingsTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.exitTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.fieldUpdateTimer = new System.Windows.Forms.Timer(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.scoreTSL = new System.Windows.Forms.ToolStripLabel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -74,25 +78,51 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox.Location = new System.Drawing.Point(0, 24);
+            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox.Location = new System.Drawing.Point(0, 27);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(430, 430);
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
-            this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
             // 
-            // fieldUpdateTimer
+            // toolStrip1
             // 
-            this.fieldUpdateTimer.Enabled = true;
-            this.fieldUpdateTimer.Interval = 25;
-            this.fieldUpdateTimer.Tick += new System.EventHandler(this.fieldUpdateTimer_Tick);
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel,
+            this.scoreTSL});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 460);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(430, 25);
+            this.toolStrip1.TabIndex = 2;
+            this.toolStrip1.Text = "toolStrip";
+            // 
+            // toolStripLabel
+            // 
+            this.toolStripLabel.Name = "toolStripLabel";
+            this.toolStripLabel.Size = new System.Drawing.Size(39, 22);
+            this.toolStripLabel.Text = "Score:";
+            // 
+            // scoreTSL
+            // 
+            this.scoreTSL.Name = "scoreTSL";
+            this.scoreTSL.Size = new System.Drawing.Size(13, 22);
+            this.scoreTSL.Text = "0";
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 25;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 454);
+            this.ClientSize = new System.Drawing.Size(430, 485);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -107,6 +137,8 @@
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,7 +151,10 @@
         private System.Windows.Forms.ToolStripMenuItem settingsTSMI;
         private System.Windows.Forms.ToolStripMenuItem exitTSMI;
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Timer fieldUpdateTimer;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel;
+        private System.Windows.Forms.ToolStripLabel scoreTSL;
+        private System.Windows.Forms.Timer timer;
     }
 }
 

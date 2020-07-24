@@ -10,6 +10,9 @@ namespace BL
     {
         protected const int BULLET_WIDTH = 4;
         protected const int BULLET_HEIGHT = 4;
+        protected const int SHOT_DELAY = 300;
+
+        protected DateTime _timeOfTheLastShot;
 
         internal protected int Speed { get; protected set; }
         internal protected Direction DirectionOfFire { get; protected set; }
@@ -23,7 +26,7 @@ namespace BL
 
         internal static bool IsCollides(int x, int y, int width, int height, int x2, int y2, int width2, int height2)
         {
-            return !(x + width <= x2 || x > x2 + width2 || y + height <= y2 || y > y2 + height2);
+            return x + width > x2 && x < x2 + width2 && y + height > y2 && y < y2 + height2;
         }
 
         internal static bool IsCollides(int x, int y, int width, int height, List<Subject> subjects)
@@ -38,9 +41,9 @@ namespace BL
             return false;
         }
 
-        internal bool IsCollides(int x2, int y2, int width2, int height2)
+        internal bool IsCollides(int x, int y, int width, int height)
         {
-            return !(X + Width <= x2 || X > x2 + width2 || Y + Height <= y2 || Y > y2 + height2);
+            return Entity.IsCollides(X, Y, Width, Height, x, y, width, height);
         }
 
         internal bool IsCollides(List<Subject> subjects)
@@ -55,9 +58,9 @@ namespace BL
             return false;
         }
 
-        protected bool isMoving(in List<Subject> walls, int fieldWidth, int fieldHeight)
+        protected bool isMoving(in List<Subject> barriers, int fieldWidth, int fieldHeight)
         {
-            return (X >= 0 && X + Width <= fieldWidth && Y >= 0 && Y + Height <= fieldHeight && !IsCollides(walls));
+            return (X >= 0 && X + Width <= fieldWidth && Y >= 0 && Y + Height <= fieldHeight && !IsCollides(barriers));
         }
     }
 
