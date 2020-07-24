@@ -32,6 +32,7 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.newGameTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.exitTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -48,6 +49,7 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newGameTSMI,
             this.settingsTSMI,
+            this.reportTSMI,
             this.exitTSMI});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -68,6 +70,13 @@
             this.settingsTSMI.Size = new System.Drawing.Size(61, 20);
             this.settingsTSMI.Text = "Settings";
             this.settingsTSMI.Click += new System.EventHandler(this.settingsTSMI_Click);
+            // 
+            // reportTSMI
+            // 
+            this.reportTSMI.Name = "reportTSMI";
+            this.reportTSMI.Size = new System.Drawing.Size(54, 20);
+            this.reportTSMI.Text = "Report";
+            this.reportTSMI.Click += new System.EventHandler(this.reportTSMI_Click);
             // 
             // exitTSMI
             // 
@@ -127,6 +136,7 @@
             this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -155,6 +165,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel;
         private System.Windows.Forms.ToolStripLabel scoreTSL;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.ToolStripMenuItem reportTSMI;
     }
 }
 

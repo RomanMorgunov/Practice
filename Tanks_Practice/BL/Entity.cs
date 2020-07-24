@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    internal abstract class Entity : Subject
+    public abstract class Entity : Subject
     {
         protected const int BULLET_WIDTH = 4;
         protected const int BULLET_HEIGHT = 4;
@@ -14,8 +14,8 @@ namespace BL
 
         protected DateTime _timeOfTheLastShot;
 
-        internal protected int Speed { get; protected set; }
-        internal protected Direction DirectionOfFire { get; protected set; }
+        public int Speed { get; protected set; }
+        public Direction DirectionOfFire { get; protected set; }
 
         internal Entity(int x, int y, int width, int height, int speed)
             :base (x, y, width, height)
@@ -64,7 +64,7 @@ namespace BL
         }
     }
 
-    enum Direction
+    public enum Direction
     {
         Left,
         Up,

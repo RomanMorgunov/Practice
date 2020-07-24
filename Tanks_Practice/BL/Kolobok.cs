@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    internal class Kolobok : Entity
+    public class Kolobok : Entity
     {
         int _applesCount;
 

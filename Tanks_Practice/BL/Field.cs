@@ -37,6 +37,7 @@ namespace BL
 
         public event EventHandler OnGameOver;
         public event EventHandler<TanksEventArgs> OnUpdateImage;
+        public event EventHandler<ReportEventArgs> OnReportCreate;
 
         public Field(int fieldWidth, int fieldHeight, int tanksCount, int appleCount, int speedEntities, 
             EventHandler onGameOver, EventHandler<TanksEventArgs> onUpdateImage)
@@ -72,11 +73,13 @@ namespace BL
                 _water.Add(new Subject(x + BARRIER_WIDTH, centerY, BARRIER_WIDTH, BARRIER_HEIGHT));
             }
 
-            //for (int x = BARRIER_WIDTH; x < fieldWidth; x *= BARRIER_WIDTH)
-            //{
-            //    _walls.Add(new Subject(x, BARRIER_HEIGHT, BARRIER_WIDTH, BARRIER_HEIGHT));
-            //    _walls.Add(new Subject(x, fieldHeight - BARRIER_HEIGHT, BARRIER_WIDTH, BARRIER_HEIGHT));
-            //}
+            for (int x = BARRIER_WIDTH; x < fieldWidth - BARRIER_WIDTH; x += 4 * BARRIER_WIDTH)
+            {
+                for (int j = 0; j < 3; j++)
+                    _walls.Add(new Subject(x + j * BARRIER_WIDTH, centerY + 2 * BARRIER_HEIGHT, BARRIER_WIDTH, BARRIER_HEIGHT));
+                for (int j = 0; j < 3; j++)
+                    _walls.Add(new Subject(x + j * BARRIER_WIDTH, centerY - 2 * BARRIER_HEIGHT, BARRIER_WIDTH, BARRIER_HEIGHT));
+            }
         }
 
         public void Simulation()
@@ -87,6 +90,7 @@ namespace BL
             MoveTanks();
             CheckCollisions();
             OnUpdateImage?.Invoke(this, new TanksEventArgs(Draw(), _kolobok.ApplesCount));
+            OnReportCreate?.Invoke(this, new ReportEventArgs(_kolobok, _tanks, _apples));
         }
 
         void CheckCollisions()

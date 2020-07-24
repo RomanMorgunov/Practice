@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    class Tank : Entity
+    public class Tank : Entity
     {
         //in percents
         const int PROBABILITY_OF_SHOT = 1;

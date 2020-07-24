@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    internal class Subject
+    public class Subject
     {
-        internal protected int X { get; protected set; }
-        internal protected int Y { get; protected set; }
-        public int Width { get; private set; }
-        public int Height { get; private set; }
+        public int X { get; protected set; }
+        public int Y { get; protected set; }
+        public int Width { get; protected set; }
+        public int Height { get; protected set; }
 
         internal Subject(int x, int y, int width, int height)
         {

@@ -59,28 +59,28 @@
             // widthTB
             // 
             this.widthTB.AutoSize = false;
-            this.widthTB.LargeChange = 50;
+            this.widthTB.LargeChange = 66;
             this.widthTB.Location = new System.Drawing.Point(12, 35);
-            this.widthTB.Maximum = 500;
-            this.widthTB.Minimum = 429;
+            this.widthTB.Maximum = 1254;
+            this.widthTB.Minimum = 430;
             this.widthTB.Name = "widthTB";
             this.widthTB.Size = new System.Drawing.Size(209, 45);
-            this.widthTB.SmallChange = 50;
+            this.widthTB.SmallChange = 33;
             this.widthTB.TabIndex = 2;
-            this.widthTB.Value = 430;
+            this.widthTB.Value = 1254;
             // 
             // heightTB
             // 
             this.heightTB.AutoSize = false;
-            this.heightTB.LargeChange = 50;
+            this.heightTB.LargeChange = 66;
             this.heightTB.Location = new System.Drawing.Point(227, 35);
-            this.heightTB.Maximum = 500;
-            this.heightTB.Minimum = 429;
+            this.heightTB.Maximum = 528;
+            this.heightTB.Minimum = 430;
             this.heightTB.Name = "heightTB";
             this.heightTB.Size = new System.Drawing.Size(209, 45);
-            this.heightTB.SmallChange = 50;
+            this.heightTB.SmallChange = 33;
             this.heightTB.TabIndex = 4;
-            this.heightTB.Value = 430;
+            this.heightTB.Value = 528;
             // 
             // heightLbl
             // 

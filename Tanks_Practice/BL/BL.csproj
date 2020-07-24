@@ -46,6 +46,7 @@
     <Compile Include="Bullet.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Field.cs" />
+    <Compile Include="ReportEventArgs.cs" />
     <Compile Include="TanksEventArgs.cs" />
     <Compile Include="Kolobok.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
